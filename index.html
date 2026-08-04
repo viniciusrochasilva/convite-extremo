@@ -15,7 +15,7 @@
     content="Você é nosso convidado para o lançamento Extremo Experience."
   >
 
-  <!-- Configurações da capa ao compartilhar o link -->
+  <!-- Configurações da capa para WhatsApp e redes sociais -->
 
   <meta property="og:type" content="website">
 
@@ -64,7 +64,6 @@
   >
 
   <link rel="icon" href="extremo.jpg">
-
   <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -84,7 +83,7 @@
       >
 
       <!--
-        Área invisível clicável sobre a parte:
+        Área clicável invisível posicionada sobre:
         CONFIRMAR PRESENÇA — CLIQUE AQUI
       -->
 
@@ -116,18 +115,21 @@
     Seu navegador não suporta reprodução de áudio.
   </audio>
 
-  <!-- Botão para ativar ou pausar a música -->
+  <!-- Botão para ouvir ou pausar o recado -->
 
   <button
     id="botaoAudio"
     class="botao-audio"
     type="button"
-    aria-label="Ativar música"
+    aria-label="Aperte o play e ouça o recado da Extremo"
     aria-pressed="false"
-    title="Ativar ou pausar música"
+    title="Ouvir recado da Extremo"
   >
-    <span id="iconeAudio" aria-hidden="true">🔇</span>
-    <span id="textoAudio">Ativar música</span>
+    <span id="iconeAudio" aria-hidden="true">▶️</span>
+
+    <span id="textoAudio">
+      Aperte o play e ouça o recado da Extremo
+    </span>
   </button>
 
   <script src="script.js"></script>
