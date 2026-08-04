@@ -3,7 +3,7 @@ const botaoAudio = document.getElementById("botaoAudio");
 const iconeAudio = document.getElementById("iconeAudio");
 const textoAudio = document.getElementById("textoAudio");
 
-// Volume da música.
+// Volume do áudio.
 // 0.55 representa 55%.
 audio.volume = 0.55;
 
@@ -14,20 +14,33 @@ function atualizarBotaoAudio(estaTocando) {
   );
 
   if (estaTocando) {
-    iconeAudio.textContent = "🔊";
-    textoAudio.textContent = "Pausar música";
+    iconeAudio.textContent = "⏸️";
+
+    textoAudio.textContent = "Pausar recado";
 
     botaoAudio.setAttribute(
       "aria-label",
-      "Pausar música"
+      "Pausar recado da Extremo"
+    );
+
+    botaoAudio.setAttribute(
+      "title",
+      "Pausar recado da Extremo"
     );
   } else {
-    iconeAudio.textContent = "🔇";
-    textoAudio.textContent = "Ativar música";
+    iconeAudio.textContent = "▶️";
+
+    textoAudio.textContent =
+      "Aperte o play e ouça o recado da Extremo";
 
     botaoAudio.setAttribute(
       "aria-label",
-      "Ativar música"
+      "Aperte o play e ouça o recado da Extremo"
+    );
+
+    botaoAudio.setAttribute(
+      "title",
+      "Ouvir recado da Extremo"
     );
   }
 }
@@ -75,10 +88,10 @@ botaoAudio.addEventListener(
 
 /*
   Navegadores de celular normalmente bloqueiam
-  música automática antes de uma interação.
+  reprodução automática antes de uma interação.
 
-  Por isso, o site tenta tocar depois do primeiro
-  toque, clique ou tecla pressionada.
+  Por isso, o áudio também tenta iniciar após
+  o primeiro toque ou clique do visitante.
 */
 
 async function iniciarNoPrimeiroToque() {
@@ -117,6 +130,13 @@ audio.addEventListener(
 
 audio.addEventListener(
   "pause",
+  function () {
+    atualizarBotaoAudio(false);
+  }
+);
+
+audio.addEventListener(
+  "ended",
   function () {
     atualizarBotaoAudio(false);
   }
